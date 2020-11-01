@@ -1,7 +1,10 @@
+{% comment %} views.pyで指定した名前 {% endcomment %}
 {% if movie_list %}
+{% comment %} Pythonのfor構文 {% endcomment %}
     {% for movie in movie_list %}
     <li>
-        <a href="{% url 'myapp1201:movie_detail' movie.id %}">{{ movie.title }}</a>
+        {% comment %} movie.idは入力した際に自動付与される {% endcomment %}
+        <a href="{% url 'myapp:movie_detail' movie.id %}">{{ movie.title }}</a>
         {{ movie.director }}
         {{ movie.watch_date }}
     </li>
