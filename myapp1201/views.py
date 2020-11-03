@@ -24,3 +24,11 @@ class RegisterDirectorView(generic.CreateView):
   def get_success_url(self):
     # 行先はmyapp1201/register/movie
     return reverse('myapp1201:registermovie')
+
+class RegisterMovieView(generic.CreateView):
+  model = Movie
+  form_class = MovieForm
+  template_name = 'myapp1201/register.html'
+  def get_success_url(self):
+    # pkは自動ID紐付けされている。(映画メイト監督と日付)
+    return reverse('myapp1201:movie_detail', kwargs={'pk': self.object.pk})
