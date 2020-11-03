@@ -32,3 +32,10 @@ class RegisterMovieView(generic.CreateView):
   def get_success_url(self):
     # pkは自動ID紐付けされている。(映画メイト監督と日付)
     return reverse('myapp1201:movie_detail', kwargs={'pk': self.object.pk})
+
+class WritingLogView(generic.CreateView):
+    model = Log
+    form_class = LogForm
+    template_name = 'myapp1201/register.html'
+    def get_success_url(self):
+        return reverse('myapp1201:movie_detail', kwargs={'pk': self.object.movie.pk }) 
