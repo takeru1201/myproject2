@@ -10,7 +10,7 @@ urlpatterns = [
     # views.pyではMovieDetailView関数として定義、でもうrlで使うときはmovie_detail
     path('movie/<int:pk>/', views.MovieDetailView.as_view(), name='movie_detail'),
     # viewsの後はクラス名views.pyで定義する
-    path('register/director/', views.RegisterDirectorView.as_view(), name='movie_diteil'),
-    path('redister/movie/', views.RegisterMovieView.as_view(), name='registermovie'),
-    path('writing/log', Views.WritingLogView.as_view(), name='writinglog'),
+    path('register/director/', views.RegisterDirectorView.as_view(), name='registerdirector'), #これ追加
+    path('register/movie/', views.RegisterMovieView.as_view(), name='registermovie'), #これ追加
+    path('writing/log/', views.WritingLogView.as_view(), name='writinglog'), #これ追加
 ]
